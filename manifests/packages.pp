@@ -1,7 +1,7 @@
 # install any yum repo required for all servers
 class profiles::packages {
 
-  include ::packages
+  #include ::packages
 
   #set this up to see if we are on a vagrant box, then allow sudo for vagrant
   include ::profiles::vagrant
