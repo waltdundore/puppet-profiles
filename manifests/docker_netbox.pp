@@ -1,13 +1,7 @@
 class profiles::docker_netbox {
-#uses puppet-docker module
 
-  # include the docker class
-  include ::docker
- 
-  class {'docker::compose':
-    ensure  => present,
-  }
-
+  include ::profiles::docker
+  
   #clone netbox
   class code {
 
