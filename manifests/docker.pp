@@ -1,17 +1,16 @@
 class profiles::docker {
 #uses puppet-docker module
 
-  # Most Vagrant boxes use 'vagrant' rather than
-  # 'ubuntu' as the default username, but the Xenial
-  # Xerus image uses the latter.
-  class { 'docker':
-    package_name => 'docker.io',
-    docker_users => ['vagrant'],
+  # include the docker class
+  include ::docker
+
+  # fetch the docker image
+  docker::image { 'netboxcommunity:netbox':
+    ensure    => 'present',
+    image_tag => 'netbox-community',
+    require   => Class['docker'],
   }
 
-  # Install an Apache2 image based on Alpine Linux.
-  # Use port forwarding to map port 8080 on the
-  # Docker host to port 80 inside the container.
   docker::run { 'netbox':
     image   => 'netboxcommunity:netbox',
     ports   => ['8000:80'],
