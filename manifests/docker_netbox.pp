@@ -1,4 +1,4 @@
-class profiles::docker {
+class profiles::docker_netbox {
 #uses puppet-docker module
 
   # include the docker class
