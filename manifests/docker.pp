@@ -3,18 +3,15 @@ class profiles::docker {
 
   # include the docker class
   include ::docker
+  
 
-  # fetch the docker image
-  docker::image { 'netboxcommunity:netbox':
-    ensure    => 'present',
-    image_tag => 'netbox-community',
-    require   => Class['docker'],
+  class {'docker::compose':
+    ensure  => present,
   }
 
-  docker::run { 'netbox':
-    image   => 'netboxcommunity:netbox',
-    ports   => ['8000:80'],
-    require => Class['docker'],
+  docker_compose { 'test':
+    compose_files => ['/vagrant/files/docker-compose.yml'],
+    ensure        => present,
   }
 
 }
