@@ -43,7 +43,7 @@ class profiles::packages {
   }
 
   service { 'cockpit':
-    ensure => running, 
+    ensure => stopped, 
   }
 
 }
