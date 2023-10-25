@@ -4,14 +4,14 @@ class profiles::docker_netbox {
   
   #clone netbox
   class code {
-    vcsrepo { '/root/netbox': 
-      ensure   => present,
-      provider => git,
-      source   => {
-        github   => 'https://github.com/netbox-community/netbox-docker.git',
-      }
-      revision => 'production',
-    } 
+    vcsrepo { '/path/to/repo':
+      ensure     => present,
+      provider   => git,
+      source     => {
+        github => 'https://github.com/waltdundore/netbox-docker.git',
+      },
+      revision   => 'production',
+    }
 
   } 
 
