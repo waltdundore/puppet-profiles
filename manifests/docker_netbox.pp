@@ -10,6 +10,7 @@ class profiles::docker_netbox {
       provider => git,
       source   => 'https://github.com/netbox-community/netbox-docker.git',
       user     => 'root',
+      revision => 'production',
     } 
 
   } 

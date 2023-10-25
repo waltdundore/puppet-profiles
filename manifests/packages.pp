@@ -10,6 +10,10 @@ class profiles::packages {
     ensure => installed,
   }
 
+  package { 'gcc':
+    ensure => installed,
+  }
+
   package { 'htop':
     ensure => installed,
   }
