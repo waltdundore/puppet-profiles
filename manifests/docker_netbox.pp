@@ -9,8 +9,7 @@ class profiles::docker_netbox {
       provider   => git,
       source     => {
         github => 'https://github.com/waltdundore/netbox-docker.git',
-      },
-      revision   => 'production',
+      }
     }
 
   } 
