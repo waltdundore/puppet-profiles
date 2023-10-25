@@ -3,15 +3,16 @@ class profiles::docker_netbox {
   include ::profiles::docker
   
   #clone netbox
-  class code {
-    vcsrepo { '/root/netbox':
-      ensure     => present,
-      provider   => git,
-      source     => {
-        github => 'https://github.com/waltdundore/netbox-docker.git',
-      }
-    }
-
-  } 
+  vcsrepo {'/root/netbox':
+    ensure   => 'latest',
+    path     => "/root/netbox",
+    provider => 'git',
+    source   => 'ssh://git@github.com:22/waltdundore/netbox-docker.git',
+    identity => "/root/.ssh/github",
+    revision => 'production',
+    user     => 'root',
+    owner    => 'root',
+    group    => 'root',
+  }
 
 }
