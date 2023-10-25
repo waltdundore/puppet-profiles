@@ -8,7 +8,9 @@ class profiles::docker_netbox {
     vcsrepo { '/root/netbox': 
       ensure   => present,
       provider => git,
-      source   => 'https://github.com/netbox-community/netbox-docker.git',
+      source   => {
+        github   => 'https://github.com/netbox-community/netbox-docker.git',
+      }
       user     => 'root',
       revision => 'production',
     } 
