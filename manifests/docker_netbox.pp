@@ -4,7 +4,6 @@ class profiles::docker_netbox {
   
   #clone netbox
   class code {
-
     vcsrepo { '/root/netbox': 
       ensure   => present,
       provider => git,
