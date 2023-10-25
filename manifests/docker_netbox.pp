@@ -1,7 +1,8 @@
 class profiles::docker_netbox {
 
   include ::profiles::docker
-  
+  include ::profiles::github  
+
   #clone netbox
   vcsrepo {'/root/netbox':
     ensure   => 'latest',
