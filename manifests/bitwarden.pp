@@ -33,5 +33,11 @@ class profiles::bitwarden {
     group  => 'bitwarden',
   }  
 
+  file { '/opt/bitwarden/install.sh':
+    owner  => 'bitwarden',
+    group  => 'bitwarden',
+    mode   => '0700',
+  }
+
 
 }
