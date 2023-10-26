@@ -30,7 +30,7 @@ class profiles::bitwarden {
     owner  => 'bitwarden',
     group  => 'bitwarden',
     mode   => '0700',
-    source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux'.
+    source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux',
   }
 
 
