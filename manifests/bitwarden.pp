@@ -26,14 +26,14 @@ class profiles::bitwarden {
 
   
   include 'archive' 
-  archive { '/opt/bitwarden/install.sh':
+  archive { '/opt/bitwarden/bitwarden.sh':
     ensure => present,
     source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux',
     user   => 'bitwarden',
     group  => 'bitwarden',
   }  
 
-  file { '/opt/bitwarden/install.sh':
+  file { '/opt/bitwarden/bitwarden.sh':
     owner  => 'bitwarden',
     group  => 'bitwarden',
     mode   => '0700',
