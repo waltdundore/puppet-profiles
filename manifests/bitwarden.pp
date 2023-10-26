@@ -25,6 +25,7 @@ class profiles::bitwarden {
   }
 
   
+  include 'archive' 
   archive { '/opt/bitwarden/install.sh':
     ensure => present,
     source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux',
