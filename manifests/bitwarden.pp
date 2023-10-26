@@ -1,5 +1,6 @@
 class profiles::bitwarden {
 
+# https://bitwarden.com/help/install-on-premise-linux/
 
   # include the docker class
   include ::docker
@@ -14,6 +15,16 @@ class profiles::bitwarden {
     ensure               => present,
     members              => ['bitwarden'],
   }
+
+  # a fuller example, including permissions and ownership
+  file { '/opt/bitwarden':
+    ensure => 'directory',
+    owner  => 'bitwarden',
+    group  => 'bitwarden',
+    mode   => '0700',
+  }
+
+
 
 
 }
