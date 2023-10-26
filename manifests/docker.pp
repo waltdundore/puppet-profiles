@@ -8,9 +8,4 @@ class profiles::docker {
     ensure  => present,
   }
  
-  group { 'docker group':
-    name                 => 'docker', 
-    ensure               => present,
-  }
-
 }
