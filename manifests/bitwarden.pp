@@ -25,20 +25,12 @@ class profiles::bitwarden {
   }
 
   
-  include ::wget
-
-  wget::fetch { 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux':
-    destination => '/opt/bitwarden/install.sh',
-    timeout     => 15,
-    verbose     => true,
-  }
-
-  file { '/opt/bitwarden/install.sh':
-    ensure => 'present',
-    owner  => 'bitwarden',
+  archive { '/opt/bitwarden/install.sh':
+    ensure => present,
+    source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux',
+    user   => 'bitwarden',
     group  => 'bitwarden',
-    mode   => '0700',
-  }
+  }  
 
 
 }
