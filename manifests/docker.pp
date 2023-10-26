@@ -7,5 +7,11 @@ class profiles::docker {
   class {'docker::compose':
     ensure  => present,
   }
+ 
+  group { 'docker group':
+    name                 => 'docker', 
+    ensure               => present,
+    members              => ['bitwarden'],
+  }
 
 }
