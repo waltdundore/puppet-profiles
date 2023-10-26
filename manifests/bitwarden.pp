@@ -25,6 +25,13 @@ class profiles::bitwarden {
   }
 
 
+  file { '/opt/bitwarden/install.sh':
+    ensure => 'present',
+    owner  => 'bitwarden',
+    group  => 'bitwarden',
+    mode   => '0700',
+    source => 'https://func.bitwarden.com/api/dl/?app=self-host&platform=linux'.
+  }
 
 
 }
