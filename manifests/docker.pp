@@ -11,7 +11,6 @@ class profiles::docker {
   group { 'docker group':
     name                 => 'docker', 
     ensure               => present,
-    members              => ['bitwarden'],
   }
 
 }
